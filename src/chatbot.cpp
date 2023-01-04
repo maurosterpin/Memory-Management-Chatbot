@@ -70,6 +70,9 @@ ChatBot::ChatBot(ChatBot&& cb)
     this->_chatLogic = cb._chatLogic;
     this->_image = cb._image;
     this->_chatLogic->SetChatbotHandle(this);
+    cb._currentNode = nullptr;
+    cb._rootNode = nullptr;
+    cb._chatLogic = nullptr;
     cb._image = NULL;
 }
 
@@ -80,6 +83,9 @@ ChatBot& ChatBot::operator=(ChatBot &&cb)
     this->_chatLogic = cb._chatLogic;
     this->_image = cb._image;
     this->_chatLogic->SetChatbotHandle(this);
+    cb._currentNode = nullptr;
+    cb._rootNode = nullptr;
+    cb._chatLogic = nullptr;
     cb._image = NULL;
     return *this;
 }
