@@ -46,46 +46,40 @@ ChatBot::~ChatBot()
 ////
 ChatBot::ChatBot(const ChatBot &cb)
 {
-    this->_currentNode = cb._currentNode;
-    this->_rootNode = cb._rootNode;
-    this->_chatLogic = cb._chatLogic;
-    this->_image = cb._image;
-    this->_chatLogic->SetChatbotHandle(this);
+    _currentNode = cb._currentNode;
+    _rootNode = cb._rootNode;
+    _chatLogic = cb._chatLogic;
+    _image = cb._image;
+    _chatLogic->SetChatbotHandle(this);
 }
 
 ChatBot& ChatBot::operator=(const ChatBot& cb)
 {
-    this->_currentNode = cb._currentNode;
-    this->_rootNode = cb._rootNode;
-    this->_chatLogic = cb._chatLogic;
-    this->_image = cb._image;
-    this->_chatLogic->SetChatbotHandle(this);
+    _currentNode = cb._currentNode;
+    _rootNode = cb._rootNode;
+    _chatLogic = cb._chatLogic;
+    _image = cb._image;
+    _chatLogic->SetChatbotHandle(this);
     return *this;
 }
 
 ChatBot::ChatBot(ChatBot&& cb)
 {
-    this->_currentNode = cb._currentNode;
-    this->_rootNode = cb._rootNode;
-    this->_chatLogic = cb._chatLogic;
-    this->_image = cb._image;
-    this->_chatLogic->SetChatbotHandle(this);
-    cb._currentNode = nullptr;
-    cb._rootNode = nullptr;
-    cb._chatLogic = nullptr;
+    _currentNode = cb._currentNode;
+    _rootNode = cb._rootNode;
+    _chatLogic = cb._chatLogic;
+    _image = cb._image;
+    _chatLogic->SetChatbotHandle(this);
     cb._image = NULL;
 }
 
 ChatBot& ChatBot::operator=(ChatBot &&cb)
 {
-    this->_currentNode = cb._currentNode;
-    this->_rootNode = cb._rootNode;
-    this->_chatLogic = cb._chatLogic;
-    this->_image = cb._image;
-    this->_chatLogic->SetChatbotHandle(this);
-    cb._currentNode = nullptr;
-    cb._rootNode = nullptr;
-    cb._chatLogic = nullptr;
+    _currentNode = cb._currentNode;
+    _rootNode = cb._rootNode;
+    _chatLogic = cb._chatLogic;
+    _image = cb._image;
+    _chatLogic->SetChatbotHandle(this);
     cb._image = NULL;
     return *this;
 }
