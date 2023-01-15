@@ -46,6 +46,7 @@ ChatBot::~ChatBot()
 ////
 ChatBot::ChatBot(const ChatBot &cb)
 {
+    std::cout << "ChatBot copy" << std::endl;
     _currentNode = cb._currentNode;
     _rootNode = cb._rootNode;
     _chatLogic = cb._chatLogic;
@@ -55,6 +56,7 @@ ChatBot::ChatBot(const ChatBot &cb)
 
 ChatBot& ChatBot::operator=(const ChatBot& cb)
 {
+    std::cout << "ChatBot operator" << std::endl;
     _currentNode = cb._currentNode;
     _rootNode = cb._rootNode;
     _chatLogic = cb._chatLogic;
@@ -65,6 +67,7 @@ ChatBot& ChatBot::operator=(const ChatBot& cb)
 
 ChatBot::ChatBot(ChatBot&& cb)
 {
+    std::cout << "ChatBot copy" << std::endl;
     _currentNode = cb._currentNode;
     _rootNode = cb._rootNode;
     _chatLogic = cb._chatLogic;
@@ -75,6 +78,7 @@ ChatBot::ChatBot(ChatBot&& cb)
 
 ChatBot& ChatBot::operator=(ChatBot &&cb)
 {
+    std::cout << "ChatBot operator" << std::endl;
     _currentNode = cb._currentNode;
     _rootNode = cb._rootNode;
     _chatLogic = cb._chatLogic;
@@ -88,6 +92,7 @@ ChatBot& ChatBot::operator=(ChatBot &&cb)
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
+    std::cout << "ChatBot ReceiveMessageFromUser" << std::endl;
     // loop over all edges and keywords and compute Levenshtein distance to query
     typedef std::pair<GraphEdge *, int> EdgeDist;
     std::vector<EdgeDist> levDists; // format is <ptr,levDist>
@@ -122,6 +127,7 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
 
 void ChatBot::SetCurrentNode(GraphNode *node)
 {
+    std::cout << "ChatBot SetCurrentNode" << std::endl;
     // update pointer to current node
     _currentNode = node;
 
@@ -137,6 +143,8 @@ void ChatBot::SetCurrentNode(GraphNode *node)
 
 int ChatBot::ComputeLevenshteinDistance(std::string s1, std::string s2)
 {
+
+    std::cout << "ChatBot ComputeLevenshteinDistance" << std::endl;
     // convert both strings to upper-case before comparing
     std::transform(s1.begin(), s1.end(), s1.begin(), ::toupper);
     std::transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
